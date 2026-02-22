@@ -31,8 +31,8 @@ Die::Die(int numSides) : sides(numSides) { roll(); }
 //------------------------------------------------------------------------------
 // - simulates a die roll with random value from MIN_ROLL to number of sides
 //------------------------------------------------------------------------------
-int Die::roll() {
-
+int Die::roll()
+{
 	value = (rand() % (sides - MIN_ROLL + 1)) + MIN_ROLL;
 	return value;
 }

@@ -17,8 +17,8 @@ Player::Player(string playerName) : name(playerName), guess(""), points(0) { }
 //------------------------------------------------------------------------------
 // causes the player to guess either "Cho (even)" or "Han (odd)"
 //------------------------------------------------------------------------------
-void Player::makeGuess() {
-
+void Player::makeGuess()
+{
 	constexpr int MIN_VALUE = 0;
 	constexpr int MAX_VALUE = 1;
 

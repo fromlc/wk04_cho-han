@@ -33,8 +33,8 @@ void displayGrandWinner(Player, Player);
 //------------------------------------------------------------------------------
 // entry point
 //------------------------------------------------------------------------------
-int main() {
-
+int main()
+{
 	// Seed the random number generator.
 	srand(static_cast<unsigned int>(time(0)));
 
@@ -57,7 +57,8 @@ int main() {
 	Dealer dealer;
 
 	// play the rounds
-	for (int round = 1; round <= MAX_ROUNDS; round++) {
+	for (int round = 1; round <= MAX_ROUNDS; round++) 
+	{
 		std::cout << "\n--------------------------------------------------\n";
 		std::cout << "Round " << round << '\n';
 
