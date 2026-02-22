@@ -10,12 +10,18 @@
 // Constructor
 // - set the intial dice values to 0 (we won't use these values)
 //------------------------------------------------------------------------------
-Dealer::Dealer() { die1Value = die2Value = 0; }
+Dealer::Dealer() 
+{ 
+	die1Value = die2Value = 0;
+	cho = "Cho (even)";
+	han = "Han (odd)";
+}
 
 //------------------------------------------------------------------------------
 // - rolls both dice and saves their values
 //------------------------------------------------------------------------------
-void Dealer::rollDice() {
+void Dealer::rollDice()
+{
 	die1Value = die1.roll();
 	die2Value = die2.roll();
 }
@@ -23,11 +29,11 @@ void Dealer::rollDice() {
 //------------------------------------------------------------------------------
 // returns the string result of the dice roll: Cho (even) or Han (odd).                           *
 //------------------------------------------------------------------------------
-string Dealer::getChoOrHan() const {
-
+const std::string& Dealer::getChoOrHan() const
+{
 	bool even = !((die1Value + die2Value) % 2);
 
-	return even ? "Cho (even)" : "Han (odd)";
+	return even ? cho : han;
 }
 
 //------------------------------------------------------------------------------
