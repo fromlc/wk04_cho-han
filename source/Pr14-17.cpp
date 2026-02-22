@@ -18,13 +18,6 @@
 #include <string>
 
 //------------------------------------------------------------------------------
-// using symbols
-//------------------------------------------------------------------------------
-using std::cin;
-using std::cout;
-using std::string;
-
-//------------------------------------------------------------------------------
 // constants
 //------------------------------------------------------------------------------
 constexpr int MAX_ROUNDS = 5;		// number of rounds to play
@@ -43,17 +36,17 @@ void displayGrandWinner(Player, Player);
 int main() {
 
 	// Seed the random number generator.
-	srand((unsigned int)time(0));
+	srand(static_cast<unsigned int>(time(0)));
 
 	// app banner
-	cout << "\nWelcome to Cho-Han!\n\n";
+	std::cout << "\nWelcome to Cho-Han!\n\n";
 
 	string player1Name, player2Name;
 
 	// get the player's names
-	cout << "Enter the first player's name: ";
+	std::cout << "Enter the first player's name: ";
 	cin >> player1Name;
-	cout << "Enter the second player's name: ";
+	std::cout << "Enter the second player's name: ";
 	cin >> player2Name;
 
 	// create the two players
@@ -65,8 +58,8 @@ int main() {
 
 	// play the rounds
 	for (int round = 1; round <= MAX_ROUNDS; round++) {
-		cout << "\n--------------------------------------------------\n";
-		cout << "Round " << round << '\n';
+		std::cout << "\n--------------------------------------------------\n";
+		std::cout << "Round " << round << '\n';
 
 		// roll the dice
 		dealer.rollDice();
@@ -91,11 +84,11 @@ int main() {
 void roundResults(Dealer& dealer, Player& player1, Player& player2) {
 
 	// show the dice values
-	cout << "The dealer rolled " << dealer.getDie1Value()
+	std::cout << "The dealer rolled " << dealer.getDie1Value()
 		<< " and " << dealer.getDie2Value();
 
 	// show the result
-	cout << ": " << dealer.getChoOrHan() << '\n';
+	std::cout << ": " << dealer.getChoOrHan() << '\n';
 
 	// check each player's guess and award points
 	checkGuess(player1, dealer);
@@ -111,46 +104,46 @@ void checkGuess(Player& player, Dealer& dealer) {
 	string guess = player.getGuess();
 
 	// display the player's guess
-	cout << player.getName() << " guessed " << guess << '.';
+	std::cout << player.getName() << " guessed " << guess << '.';
 
 	// award points if the player guessed correctly
 	if (!guess.compare(dealer.getChoOrHan())) {
 
 		player.addPoints(POINTS_TO_ADD);
-		cout << " Awarding " << POINTS_TO_ADD << " point";
+		std::cout << " Awarding " << POINTS_TO_ADD << " point";
 
 		if (POINTS_TO_ADD > 1) {
-			cout << 's';
+			std::cout << 's';
 		}
-		cout << " to " << player.getName() << '!';
+		std::cout << " to " << player.getName() << '!';
 	}
 
-	cout << '\n';
+	std::cout << '\n';
 }
 
 //------------------------------------------------------------------------------
 // displays the game's grand winner
 //------------------------------------------------------------------------------
 void displayGrandWinner(Player player1, Player player2) {
-	cout << "\n--------------------------------------------------\n";
-	cout << "Game over. Here are the results:\n";
+	std::cout << "\n--------------------------------------------------\n";
+	std::cout << "Game over. Here are the results:\n";
 
 	// display player #1's results
-	cout << player1.getName() << ": "
+	std::cout << player1.getName() << ": "
 		<< player1.getPoints() << " points\n";
 
 	// display player #2's results
-	cout << player2.getName() << ": "
+	std::cout << player2.getName() << ": "
 		<< player2.getPoints() << " points\n";
 
 	// determine the grand winner
 	if (player1.getPoints() > player2.getPoints()) {
-		cout << player1.getName() << " is the grand winner!\n";
+		std::cout << player1.getName() << " is the grand winner!\n";
 	}
 	else if (player2.getPoints() > player1.getPoints()) {
-		cout << player2.getName() << " is the grand winner!\n";
+		std::cout << player2.getName() << " is the grand winner!\n";
 	}
 	else {
-		cout << "Both players are tied!\n";
+		std::cout << "Both players are tied!\n";
 	}
 }
