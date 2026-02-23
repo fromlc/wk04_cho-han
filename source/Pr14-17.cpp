@@ -82,8 +82,8 @@ int main()
 //------------------------------------------------------------------------------
 // determines the results of the current round
 //------------------------------------------------------------------------------
-void roundResults(Dealer& dealer, Player& player1, Player& player2) {
-
+void roundResults(Dealer& dealer, Player& player1, Player& player2) 
+{
 	// show the dice values
 	std::cout << "The dealer rolled " << dealer.getDie1Value()
 		<< " and " << dealer.getDie2Value();
@@ -99,8 +99,8 @@ void roundResults(Dealer& dealer, Player& player1, Player& player2) {
 //------------------------------------------------------------------------------
 // checks a player's guess against the dealer's result
 //------------------------------------------------------------------------------
-void checkGuess(Player& player, Dealer& dealer) {
-
+void checkGuess(Player& player, Dealer& dealer) 
+{
 	// get the player's guess
 	string guess = player.getGuess();
 
@@ -118,14 +118,14 @@ void checkGuess(Player& player, Dealer& dealer) {
 		}
 		std::cout << " to " << player.getName() << '!';
 	}
-
 	std::cout << '\n';
 }
 
 //------------------------------------------------------------------------------
 // displays the game's grand winner
 //------------------------------------------------------------------------------
-void displayGrandWinner(Player player1, Player player2) {
+void displayGrandWinner(Player player1, Player player2)
+{
 	std::cout << "\n--------------------------------------------------\n";
 	std::cout << "Game over. Here are the results:\n";
 
@@ -138,13 +138,12 @@ void displayGrandWinner(Player player1, Player player2) {
 		<< player2.getPoints() << " points\n";
 
 	// determine the grand winner
-	if (player1.getPoints() > player2.getPoints()) {
+	if (player1.getPoints() > player2.getPoints())
 		std::cout << player1.getName() << " is the grand winner!\n";
-	}
-	else if (player2.getPoints() > player1.getPoints()) {
+	
+	else if (player2.getPoints() > player1.getPoints())
 		std::cout << player2.getName() << " is the grand winner!\n";
-	}
-	else {
+	
+	else
 		std::cout << "Both players are tied!\n";
-	}
 }
