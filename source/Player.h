@@ -8,7 +8,6 @@
 #define PLAYER_H
 
 #include <string>
-using namespace std;
 
 //------------------------------------------------------------------------------
 // Player
@@ -16,16 +15,18 @@ using namespace std;
 class Player
 {
 private:
-	string name;
-	string guess;
+	std::string name;
+	std::string guess;
 	int points;
 
 public:
-	Player(string);				// Constructor
-	void makeGuess();			// Causes player to make a guess
-	void addPoints(int);			// Adds points to the player
-	string getName() const;		// Returns the player's name
-	string getGuess() const;		// Returns the player's guess
-	int getPoints() const;		// Returns the player's points
+	Player(const std::string&);				// Constructor
+	const std::string& getName() const;		// Returns the player's name
+	
+	void makeGuess();						// Causes player to make a guess
+	const std::string& getGuess() const;	// Returns the player's guess
+	
+	void addPoints(int);					// Adds points to the player
+	int getPoints() const;					// Returns the player's points
 };
-#endif
+#endif // PLAYER_H

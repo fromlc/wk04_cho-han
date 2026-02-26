@@ -7,20 +7,27 @@
 #include "Player.h"
 
 #include <string>
-using std::string;
 
 //------------------------------------------------------------------------------
 // Constructor
 //------------------------------------------------------------------------------
-Player::Player(string playerName) : name(playerName), guess(""), points(0) { }
+Player::Player(const std::string& playerName) : name(playerName)
+{
+	points = 0;
+}
+
+//------------------------------------------------------------------------------
+// returns a const reference to the player's name
+//------------------------------------------------------------------------------
+const std::string& Player::getName() const { return name; }
 
 //------------------------------------------------------------------------------
 // causes the player to guess either "Cho (even)" or "Han (odd)"
 //------------------------------------------------------------------------------
 void Player::makeGuess()
 {
-	constexpr int MIN_VALUE = 0;
-	constexpr int MAX_VALUE = 1;
+	static constexpr int MIN_VALUE = 0;
+	static constexpr int MAX_VALUE = 1;
 
 	// Get a random number, either 0 or 1.
 	int guessNumber = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
@@ -30,19 +37,14 @@ void Player::makeGuess()
 }
 
 //------------------------------------------------------------------------------
-// - adds the specified number of points to the player                            *
+// returns a const reference to the player's guess
+//------------------------------------------------------------------------------
+const std::string& Player::getGuess() const { return guess; }
+
+//------------------------------------------------------------------------------
+// adds the specified number of points to the player                            *
 //------------------------------------------------------------------------------
 void Player::addPoints(int newPoints) { points += newPoints; }
-
-//------------------------------------------------------------------------------
-// - returns the player's name
-//------------------------------------------------------------------------------
-string Player::getName() const { return name; }
-
-//------------------------------------------------------------------------------
-// returns the player's guess
-//------------------------------------------------------------------------------
-string Player::getGuess() const { return guess; }
 
 //------------------------------------------------------------------------------
 // returns the player's points

@@ -41,13 +41,13 @@ int main()
 	// app banner
 	std::cout << "\nWelcome to Cho-Han!\n\n";
 
-	string player1Name, player2Name;
+	std::string player1Name, player2Name;
 
 	// get the player's names
 	std::cout << "Enter the first player's name: ";
-	cin >> player1Name;
+	std::cin >> player1Name;
 	std::cout << "Enter the second player's name: ";
-	cin >> player2Name;
+	std::cin >> player2Name;
 
 	// create the two players
 	Player player1(player1Name);
@@ -102,7 +102,7 @@ void roundResults(Dealer& dealer, Player& player1, Player& player2)
 void checkGuess(Player& player, Dealer& dealer) 
 {
 	// get the player's guess
-	string guess = player.getGuess();
+	std::string guess = player.getGuess();
 
 	// display the player's guess
 	std::cout << player.getName() << " guessed " << guess << '.';
