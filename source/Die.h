@@ -18,9 +18,9 @@ private:
 
 public:
 	Die();					// Constructor
-	Die(int);				// Constructor
-	int roll();				// Rolls the die and returns the die's value
-	int getSides() const;	// Returns the number of sides
+	Die(int);				// Constructor accepts number of die sides
+	int roll();				// Rolls the die and returns its value
+	int getSides() const;	// Returns the number of die sides
 	int getValue() const;	// Returns the die's value
 };
 #endif
