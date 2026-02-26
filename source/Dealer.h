@@ -23,11 +23,11 @@ private:
 public:
 	Dealer();
 
-	void rollDice();
+	void rollDice();				
 	int getDie1Value() const;
 	int getDie2Value() const;
 
-	// Get the result (Cho or Han)
+	// Get the roll result (Cho or Han)
 	const std::string& getChoOrHan() const;
 };
 #endif DEALER_H
