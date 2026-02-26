@@ -8,20 +8,17 @@
 
 #include <string>
 
-//------------------------------------------------------------------------------
-// Constructor
+// constructor
 //------------------------------------------------------------------------------
 Player::Player(const std::string& playerName) : name(playerName)
 {
 	points = 0;
 }
 
-//------------------------------------------------------------------------------
 // returns a const reference to the player's name
 //------------------------------------------------------------------------------
 const std::string& Player::getName() const { return name; }
 
-//------------------------------------------------------------------------------
 // causes the player to guess either "Cho (even)" or "Han (odd)"
 //------------------------------------------------------------------------------
 void Player::makeGuess()
@@ -33,17 +30,14 @@ void Player::makeGuess()
 	guess = (guessNumber == 0) ? "Cho (even)" : "Han (odd)";
 }
 
-//------------------------------------------------------------------------------
 // returns a const reference to the player's guess
 //------------------------------------------------------------------------------
 const std::string& Player::getGuess() const { return guess; }
 
-//------------------------------------------------------------------------------
 // adds the specified number of points to the player                            *
 //------------------------------------------------------------------------------
 void Player::addPoints(int newPoints) { points += newPoints; }
 
-//------------------------------------------------------------------------------
 // returns the player's points
 //------------------------------------------------------------------------------
 int Player::getPoints() const { return points; }

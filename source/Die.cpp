@@ -9,25 +9,21 @@
 
 #include <cstdlib>     // rand()
 
-//------------------------------------------------------------------------------
 // constants
 //------------------------------------------------------------------------------
 constexpr int DEFAULT_SIDES = 6;
 
-//------------------------------------------------------------------------------
 // default constructor
 // - sets initial die value with roll
 //------------------------------------------------------------------------------
 Die::Die() : sides(DEFAULT_SIDES) { roll(); }
 
-//------------------------------------------------------------------------------
 // overload constructor 
 // - accepts number of sides for the die
-// - performs a roll
+// - sets initial die value with roll
 //------------------------------------------------------------------------------
 Die::Die(int numSides) : sides(numSides) { roll(); }
 
-//------------------------------------------------------------------------------
 // simulates a die roll with random value from 1 to number of sides
 // - sets die value
 //------------------------------------------------------------------------------
@@ -37,10 +33,8 @@ int Die::roll()
 	return value;
 }
 
-//------------------------------------------------------------------------------
 // getters
 //------------------------------------------------------------------------------
 int Die::getSides() const { return sides; }
-
 int Die::getValue() const { return value; }
 
