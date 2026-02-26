@@ -26,6 +26,7 @@ constexpr int POINTS_TO_ADD = 1;	// points to award winner
 //------------------------------------------------------------------------------
 void roundResults(Dealer&, Player&, Player&);
 void checkGuess(Player&, Dealer&);
+void displayScore (Player&, Player&);
 void displayGrandWinner(Player&, Player&);
 
 // entry point
@@ -80,16 +81,19 @@ int main()
 //------------------------------------------------------------------------------
 void roundResults(Dealer& dealer, Player& player1, Player& player2) 
 {
-	// show the dice values
-	std::cout << "The dealer rolled " << dealer.getDie1Value()
-		<< " and " << dealer.getDie2Value();
+	int die1Value = dealer.getDie1Value();
+	int die2Value = dealer.getDie2Value();
 
-	// show the result
-	std::cout << ": " << dealer.getChoOrHan() << '\n';
+	// show dice values and result
+	std::cout << "The dealer rolled " << die1Value + die2Value 
+		<< " (" << die1Value << " and " << die2Value << "). "
+		<< dealer.getChoOrHan() << "!\n";
 
 	// check each player's guess and award points
 	checkGuess(player1, dealer);
 	checkGuess(player2, dealer);
+
+	displayScore(player1, player2);
 }
 
 // checks a player's guess against the dealer's result
@@ -116,14 +120,10 @@ void checkGuess(Player& player, Dealer& dealer)
 	std::cout << '\n';
 }
 
+// displays both Players' points
 //------------------------------------------------------------------------------
-// displays the game's grand winner
-//------------------------------------------------------------------------------
-void displayGrandWinner(Player& player1, Player& player2)
+void displayScore(Player& player1, Player& player2)
 {
-	std::cout << "\n--------------------------------------------------\n";
-	std::cout << "Game over. Here are the results:\n";
-
 	// display player #1's results
 	std::cout << player1.getName() << ": "
 		<< player1.getPoints() << " points\n";
@@ -131,6 +131,14 @@ void displayGrandWinner(Player& player1, Player& player2)
 	// display player #2's results
 	std::cout << player2.getName() << ": "
 		<< player2.getPoints() << " points\n";
+}
+
+// displays the game's grand winner
+//------------------------------------------------------------------------------
+void displayGrandWinner(Player& player1, Player& player2)
+{
+	std::cout << "\n--------------------------------------------------\n";
+	std::cout << "Game over. ";
 
 	// determine the grand winner
 	if (player1.getPoints() > player2.getPoints())
@@ -141,4 +149,6 @@ void displayGrandWinner(Player& player1, Player& player2)
 	
 	else
 		std::cout << "Both players are tied!\n";
+
+	displayScore(player1, player2);
 }
