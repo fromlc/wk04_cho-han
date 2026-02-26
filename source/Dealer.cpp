@@ -8,11 +8,9 @@
 
 //------------------------------------------------------------------------------
 // Constructor
-// - set the intial dice values to 0 (we won't use these values)
 //------------------------------------------------------------------------------
 Dealer::Dealer() 
 { 
-	die1Value = die2Value = 0;
 	cho = "Cho (even)";
 	han = "Han (odd)";
 }
@@ -22,26 +20,26 @@ Dealer::Dealer()
 //------------------------------------------------------------------------------
 void Dealer::rollDice()
 {
-	die1Value = die1.roll();
-	die2Value = die2.roll();
+	die1.roll();
+	die2.roll();
 }
+
+//------------------------------------------------------------------------------
+// returns the value of die #1
+//------------------------------------------------------------------------------
+int Dealer::getDie1Value() const { return die1.getValue(); }
+
+//------------------------------------------------------------------------------
+// returns the value of die #2
+//------------------------------------------------------------------------------
+int Dealer::getDie2Value() const { return die2.getValue(); }
 
 //------------------------------------------------------------------------------
 // returns the string result of the dice roll: Cho (even) or Han (odd).                           *
 //------------------------------------------------------------------------------
 const std::string& Dealer::getChoOrHan() const
 {
-	bool even = !((die1Value + die2Value) % 2);
+	bool odd = (die1.getValue() + die2.getValue()) % 2;
 
-	return even ? cho : han;
+	return odd ? han : cho;
 }
-
-//------------------------------------------------------------------------------
-// returns the value of die #1
-//------------------------------------------------------------------------------
-int Dealer::getDie1Value() const { return die1Value; }
-
-//------------------------------------------------------------------------------
-// returns the value of die #2
-//------------------------------------------------------------------------------
-int Dealer::getDie2Value() const { return die2Value; }

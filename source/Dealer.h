@@ -17,20 +17,17 @@
 class Dealer
 {
 private:
-	Die die1;             // Object for die #1
-	Die die2;             // Object for die #2
-	int die1Value;        // Value of die #1
-	int die2Value;        // Value of die #2
+	Die die1, die2;
 	std::string cho, han;
 
 public:
 	Dealer();
 
-	// Get the result (Cho or Han)
-	const std::string& getChoOrHan() const;
-
 	void rollDice();
 	int getDie1Value() const;
 	int getDie2Value() const;
+
+	// Get the result (Cho or Han)
+	const std::string& getChoOrHan() const;
 };
 #endif DEALER_H
