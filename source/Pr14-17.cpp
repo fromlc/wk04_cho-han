@@ -17,20 +17,17 @@
 #include <iostream>
 #include <string>
 
-//------------------------------------------------------------------------------
 // constants
 //------------------------------------------------------------------------------
 constexpr int MAX_ROUNDS = 5;		// number of rounds to play
 constexpr int POINTS_TO_ADD = 1;	// points to award winner
 
-//------------------------------------------------------------------------------
-// prototypes
+// local function prototypes
 //------------------------------------------------------------------------------
 void roundResults(Dealer&, Player&, Player&);
 void checkGuess(Player&, Dealer&);
 void displayGrandWinner(Player, Player);
 
-//------------------------------------------------------------------------------
 // entry point
 //------------------------------------------------------------------------------
 int main()
@@ -79,7 +76,6 @@ int main()
 	return 0;
 }
 
-//------------------------------------------------------------------------------
 // determines the results of the current round
 //------------------------------------------------------------------------------
 void roundResults(Dealer& dealer, Player& player1, Player& player2) 
@@ -96,7 +92,6 @@ void roundResults(Dealer& dealer, Player& player1, Player& player2)
 	checkGuess(player2, dealer);
 }
 
-//------------------------------------------------------------------------------
 // checks a player's guess against the dealer's result
 //------------------------------------------------------------------------------
 void checkGuess(Player& player, Dealer& dealer) 
@@ -121,7 +116,6 @@ void checkGuess(Player& player, Dealer& dealer)
 	std::cout << '\n';
 }
 
-//------------------------------------------------------------------------------
 // displays the game's grand winner
 //------------------------------------------------------------------------------
 void displayGrandWinner(Player player1, Player player2)
