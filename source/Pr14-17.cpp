@@ -26,7 +26,7 @@ constexpr int POINTS_TO_ADD = 1;	// points to award winner
 //------------------------------------------------------------------------------
 void roundResults(Dealer&, Player&, Player&);
 void checkGuess(Player&, Dealer&);
-void displayGrandWinner(Player, Player);
+void displayGrandWinner(Player&, Player&);
 
 // entry point
 //------------------------------------------------------------------------------
@@ -119,7 +119,7 @@ void checkGuess(Player& player, Dealer& dealer)
 //------------------------------------------------------------------------------
 // displays the game's grand winner
 //------------------------------------------------------------------------------
-void displayGrandWinner(Player player1, Player player2)
+void displayGrandWinner(Player& player1, Player& player2)
 {
 	std::cout << "\n--------------------------------------------------\n";
 	std::cout << "Game over. Here are the results:\n";
