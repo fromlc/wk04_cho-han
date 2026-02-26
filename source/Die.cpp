@@ -22,13 +22,14 @@ Die::Die() : sides(DEFAULT_SIDES) { roll(); }
 
 //------------------------------------------------------------------------------
 // overload constructor 
-// - accepts optional number of sides for the die
+// - accepts number of sides for the die
 // - performs a roll
 //------------------------------------------------------------------------------
 Die::Die(int numSides) : sides(numSides) { roll(); }
 
 //------------------------------------------------------------------------------
 // simulates a die roll with random value from 1 to number of sides
+// - sets die value
 //------------------------------------------------------------------------------
 int Die::roll() 
 { 
