@@ -26,11 +26,8 @@ const std::string& Player::getName() const { return name; }
 //------------------------------------------------------------------------------
 void Player::makeGuess()
 {
-	static constexpr int MIN_VALUE = 0;
-	static constexpr int MAX_VALUE = 1;
-
 	// Get a random number, either 0 or 1.
-	int guessNumber = (rand() % (MAX_VALUE - MIN_VALUE + 1)) + MIN_VALUE;
+	int guessNumber = rand() % 2;
 
 	// Convert the random number to Cho or Han.
 	guess = (guessNumber == 0) ? "Cho (even)" : "Han (odd)";
