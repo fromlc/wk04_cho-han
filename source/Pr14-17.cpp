@@ -20,8 +20,20 @@
 //------------------------------------------------------------------------------
 // constants
 //------------------------------------------------------------------------------
-constexpr int MAX_ROUNDS = 5;		// number of rounds to play
+constexpr int MAX_ROUNDS = 3;		// number of rounds to play
 constexpr int POINTS_TO_ADD = 1;	// points to award winner
+
+//------------------------------------------------------------------------------
+// globals
+//------------------------------------------------------------------------------
+// This global Die variable changes the relationship between Dealer and Die
+// from Composition to Aggregation.
+// 
+// The relationship becomes Aggregation because a Die instance now exists 
+// independently of any Dealer instance . Variable g_die has a different 
+// scope than Die member variables of Dealer (global scope vs. local scope
+// to Dealer instance).
+Die g_die;
 
 //------------------------------------------------------------------------------
 // prototypes
@@ -49,9 +61,41 @@ int main()
 	std::cout << "Enter the second player's name: ";
 	std::cin >> player2Name;
 
+	// Since Die exists independently of Dealer, 
+	// we can use it for other game features.
+	std::cout << "\nRoll the global g_die to see who goes first!\n";
+
+	int roll1Value;
+	int roll2Value;
+	do
+	{
+		roll1Value = g_die.roll();
+		roll2Value = g_die.roll();
+
+	} while (roll1Value == roll2Value);
+
+	std::cout << player1Name << " rolled " << roll1Value
+		<< ", " << player2Name << " rolled " << roll2Value << "\n";
+
+	// Now we need a default constructor for Player
+	Player player1, player2;
+
+	if (roll1Value > roll2Value)
+	{
+		player1.setName(player1Name);
+		player2.setName(player2Name);
+	}
+	else
+	{
+		player1.setName(player2Name);
+		player2.setName(player1Name);
+	}
+
+	std::cout << player1.getName() << " goes first. Let's play Cho-Han!\n";
+
 	// create the two players
-	Player player1(player1Name);
-	Player player2(player2Name);
+	//Player player1(player1Name);
+	//Player player2(player2Name);
 
 	// create the dealer
 	Dealer dealer;

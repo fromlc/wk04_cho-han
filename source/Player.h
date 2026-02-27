@@ -20,9 +20,12 @@ private:
 	int points;
 
 public:
-	Player(const std::string&);				// Constructor
+	Player();								// Default Constructor
+	Player(const std::string&);				// Overload Constructor
+
 	const std::string& getName() const;		// Returns the player's name
-	
+	void setName(const std::string&);		// Sets the player's name	
+
 	void makeGuess();						// Causes player to make a guess
 	const std::string& getGuess() const;	// Returns the player's guess
 	

@@ -9,17 +9,23 @@
 #include <string>
 
 //------------------------------------------------------------------------------
-// Constructor
+// Constructors
 //------------------------------------------------------------------------------
-Player::Player(const std::string& playerName) : name(playerName)
-{
-	points = 0;
-}
+Player::Player() : name("NOTSET"), points(0)
+{ }
+
+Player::Player(const std::string& playerName) : name(playerName), points(0)
+{ }
 
 //------------------------------------------------------------------------------
 // returns a const reference to the player's name
 //------------------------------------------------------------------------------
 const std::string& Player::getName() const { return name; }
+
+//------------------------------------------------------------------------------
+// returns a const reference to the player's name
+//------------------------------------------------------------------------------
+void Player::setName(const std::string& playerName) { name = playerName; }
 
 //------------------------------------------------------------------------------
 // causes the player to guess either "Cho (even)" or "Han (odd)"
