@@ -39,7 +39,7 @@ int main()
 	srand(static_cast<unsigned int>(time(0)));
 
 	// app banner
-	std::cout << "\nWelcome to Cho-Han!\n\n";
+	std::cout << "\nWelcome to Cho-Han with Class Composition!\n\n";
 
 	std::string player1Name, player2Name;
 
