@@ -51,7 +51,7 @@ int main()
 	srand(static_cast<unsigned int>(time(0)));
 
 	// app banner
-	std::cout << "\nWelcome to Cho-Han!\n\n";
+	std::cout << "\nWelcome to Cho-Han with Class Aggregation!\n\n";
 
 	std::string player1Name, player2Name;
 
@@ -65,8 +65,7 @@ int main()
 	// we can use it for other game features.
 	std::cout << "\nRoll the global g_die to see who goes first!\n";
 
-	int roll1Value;
-	int roll2Value;
+	int roll1Value, roll2Value;
 	do
 	{
 		roll1Value = g_die.roll();
@@ -77,7 +76,13 @@ int main()
 	std::cout << player1Name << " rolled " << roll1Value
 		<< ", " << player2Name << " rolled " << roll2Value << "\n";
 
-	// Now we need a default constructor for Player
+	// create the two players
+
+	//Player player1(player1Name);
+	//Player player2(player2Name);
+
+	// Now we need a default constructor for Player so we can
+	// set the name separate from Player instance declaration
 	Player player1, player2;
 
 	if (roll1Value > roll2Value)
@@ -92,10 +97,6 @@ int main()
 	}
 
 	std::cout << player1.getName() << " goes first. Let's play Cho-Han!\n";
-
-	// create the two players
-	//Player player1(player1Name);
-	//Player player2(player2Name);
 
 	// create the dealer
 	Dealer dealer;
